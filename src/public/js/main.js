@@ -1,7 +1,7 @@
 
-document.addEventListener('DOMContentLoaded', function() { work() }, false);
+document.addEventListener('DOMContentLoaded', function() { renderHabits() }, false);
 
-async function work() {
+async function renderHabits() {
 
   const habitsObject = await getHabits();
   const habits = Array.isArray(habitsObject) ? habitsObject : Object.values(habitsObject)[0];
@@ -12,7 +12,12 @@ async function work() {
   }
 
   habits.forEach((habit, index) => {
-    console.log(`Habit ${index + 1}:`, habit.title);
+    const habitElements = document.getElementsByClassName("habit-title");
+  
+    if (habitElements[index]) {
+      habitElements[index].textContent = habit.title;
+    }
+
   });
    
 };

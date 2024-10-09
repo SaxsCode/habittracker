@@ -1,0 +1,16 @@
+{
+  "name": "habittracker",
+  "version": "1.0.0",
+  "description": "local habit tracker",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "habittracker"
+  },
+  "author": "sax",
+  "license": "ISC"
+}

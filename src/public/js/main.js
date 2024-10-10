@@ -1,5 +1,8 @@
-
 document.addEventListener('DOMContentLoaded', function() { renderHabits() }, false);
+document.addEventListener('click', function (event) {
+  if(!event.target.matches('td')) return;  
+  toggleHabbit(event) 
+  }, false);
 
 async function renderHabits() {
 
@@ -58,4 +61,27 @@ function generateHabitRows(rows = 0) {
 
   const tableBody = document.getElementById('habit-table').getElementsByTagName('tbody')[0];
   tableBody.innerHTML = html;
+}
+
+function toggleHabbit(event) {
+  event.preventDefault();
+
+  const element = event.target;
+
+  if(element.classList.contains('habit-title')) {
+    return;
+  }
+
+  const DONE_CLASS = 'done';
+  const DONE_STYLE = { backgroundColor: 'blue' };
+  
+  const isDone = element.classList.contains(DONE_CLASS);
+  
+  if (isDone) {
+    element.style = '';
+    element.classList.remove(DONE_CLASS);
+  } else {
+    Object.assign(element.style, DONE_STYLE);
+    element.classList.add(DONE_CLASS);
+  }
 }
